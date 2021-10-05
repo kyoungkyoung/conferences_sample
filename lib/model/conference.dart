@@ -1,13 +1,13 @@
-class Conferences{
+class Conference{
   String name;
   String link;
   String start;
   String end;
   String location;
 
-  Conferences(this.name, this.link, this.start, this.end, this.location);
+  Conference(this.name, this.link, this.start, this.end, this.location);
 
-  Conferences.fromJson(Map<String, dynamic> json){
+  Conference.fromJson(Map<String, dynamic> json){
     name = json['name'];
     link = json['link'];
     start = json['start'];
