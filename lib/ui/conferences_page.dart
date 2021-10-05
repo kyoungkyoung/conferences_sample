@@ -11,18 +11,19 @@ class ConferencesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            '',
-            style: TextStyle(color: Colors.black),
-          ),
-          backgroundColor: Colors.white,
-        ),
+        // appBar: AppBar(
+        //   title: Text(
+        //     '',
+        //     style: TextStyle(color: Colors.black),
+        //   ),
+        //   backgroundColor: Colors.white,
+        // ),
         body: ListView(
           padding: EdgeInsets.all(8.0),
           children: [
             Container(
-              padding: EdgeInsets.all(16.0),
+              alignment: Alignment.topLeft,
+              margin: EdgeInsets.only(left: 16.0, top: 60.0),
               child: Text('Conferences',
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
             ),
