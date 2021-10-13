@@ -1,23 +1,22 @@
-class Conference{
-  String name;
-  String link;
-  String start;
-  String end;
-  String location;
+class Conference {
+  late String name;
+  late String link;
+  late String start;
+  late String end;
+  late String location;
 
-  Conference(this.name, this.link, this.start, this.end, this.location);
+  Conference(
+      {required this.name,
+      required this.link,
+      required this.start,
+      required this.end,
+      required this.location});
 
-  Conference.fromJson(Map<String, dynamic> json){
+  Conference.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     link = json['link'];
     start = json['start'];
     end = json['end'];
     location = json['location'];
   }
-
-  // @override
-  // String toString() {
-  //   return super.toString();
-  // }
-
 }

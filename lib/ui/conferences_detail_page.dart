@@ -7,15 +7,14 @@ import 'dart:async';
 class ConferenceDetailPage extends StatefulWidget {
   final Conference conference;
 
-  const ConferenceDetailPage({Key key, this.conference}) : super(key: key);
+  const ConferenceDetailPage({Key? key, required this.conference})
+      : super(key: key);
 
   @override
   State<ConferenceDetailPage> createState() => _ConferenceDetailPageState();
 }
 
 class _ConferenceDetailPageState extends State<ConferenceDetailPage> {
-  Future<void> _launched;
-
   @override
   Widget build(BuildContext context) {
     String url = widget.conference.link;
@@ -27,13 +26,13 @@ class _ConferenceDetailPageState extends State<ConferenceDetailPage> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_rounded,
                   color: Colors.lightBlue,
                 ));
           },
         ),
-        title: Text(
+        title: const Text(
           'Conferences',
           style: TextStyle(
             color: Colors.lightBlue,
@@ -47,38 +46,32 @@ class _ConferenceDetailPageState extends State<ConferenceDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              child: Text(
-                widget.conference.name,
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
+            Text(
+              widget.conference.name,
+              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             SizedBox.fromSize(
-              size: Size(30, 30),
+              size: const Size(30, 30),
             ),
             Text(
               widget.conference.location,
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
             SizedBox.fromSize(
-              size: Size(30, 15),
+              size: const Size(30, 15),
             ),
             Text(
-              new DateFormat.yMMMd().format(DateTime.parse(widget.conference.start)) +
+              DateFormat.yMMMd()
+                      .format(DateTime.parse(widget.conference.start)) +
                   ' ~ ' +
-                  new DateFormat.yMMMd().format(DateTime.parse(widget.conference.end)),
-              style: TextStyle(fontSize: 18),
+                  DateFormat.yMMMd()
+                      .format(DateTime.parse(widget.conference.end)),
+              style: const TextStyle(fontSize: 18),
             ),
             ElevatedButton(
-              onPressed: () => setState((){
-                _launched = _launchInWebViewOrVC(url);
+              onPressed: () => setState(() {
+                _launchInWebViewOrVC(url);
               }),
-                // String url = widget.conference.link;
-                // if(await canLaunch(url)){
-                //   await launch(url, forceWebView: true, forceSafariVC: true);
-                // }else{
-                //   throw 'Could not launch $url';
-                // }
               child: Text(widget.conference.link),
             ),
           ],
@@ -97,9 +90,6 @@ class _ConferenceDetailPageState extends State<ConferenceDetailPage> {
     if (await canLaunch(url)) {
       await launch(
         url,
-        forceSafariVC: true,
-        forceWebView: true,
-        headers: <String, String>{'my_header_key': 'my_header_value'},
       );
     } else {
       throw 'Could not launch $url';
