@@ -64,21 +64,23 @@ class _ConferenceDetailPageState extends State<ConferenceDetailPage> {
               size: Size(30, 15),
             ),
             Text(
-              new DateFormat.yMMMd().format(DateTime.parse(widget.conference.start)) +
+              new DateFormat.yMMMd()
+                      .format(DateTime.parse(widget.conference.start)) +
                   ' ~ ' +
-                  new DateFormat.yMMMd().format(DateTime.parse(widget.conference.end)),
+                  new DateFormat.yMMMd()
+                      .format(DateTime.parse(widget.conference.end)),
               style: TextStyle(fontSize: 18),
             ),
             ElevatedButton(
-              onPressed: () => setState((){
+              onPressed: () => setState(() {
                 _launched = _launchInWebViewOrVC(url);
               }),
-                // String url = widget.conference.link;
-                // if(await canLaunch(url)){
-                //   await launch(url, forceWebView: true, forceSafariVC: true);
-                // }else{
-                //   throw 'Could not launch $url';
-                // }
+              // String url = widget.conference.link;
+              // if(await canLaunch(url)){
+              //   await launch(url, forceWebView: true, forceSafariVC: true);
+              // }else{
+              //   throw 'Could not launch $url';
+              // }
               child: Text(widget.conference.link),
             ),
           ],

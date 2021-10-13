@@ -1,4 +1,4 @@
-class Conference{
+class Conference {
   String name;
   String link;
   String start;
@@ -7,17 +7,11 @@ class Conference{
 
   Conference(this.name, this.link, this.start, this.end, this.location);
 
-  Conference.fromJson(Map<String, dynamic> json){
+  Conference.fromJson(Map<String, dynamic> json) {
     name = json['name'];
     link = json['link'];
     start = json['start'];
     end = json['end'];
     location = json['location'];
   }
-
-  // @override
-  // String toString() {
-  //   return super.toString();
-  // }
-
 }
